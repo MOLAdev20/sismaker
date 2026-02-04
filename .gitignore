@@ -1,0 +1,41 @@
+# dependencies (all)
+node_modules/
+**/node_modules/
+
+# build outputs
+dist/
+build/
+**/dist/
+**/build/
+
+# vite / tooling cache
+.vite/
+**/.vite/
+.cache/
+**/.cache/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# ignore all env files
+.env
+.env.*
+**/.env
+**/.env.*
+
+# but keep examples
+!.env.example
+!**/.env.example
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# coverage
+coverage/
+**/coverage/
