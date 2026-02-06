@@ -1,12 +1,8 @@
-// AdminDashboardTemplate.jsx
-// Template doang (tanpa logic bisnis). Responsive + sidebar collapsible di mobile.
-// Tinggal paste ke project React kamu. (Butuh Tailwind CSS)
-
 import { useEffect, useState } from "react";
 import Sidebar from "./components/sidebar";
 import Topbar from "./components/Topbar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageTitle }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Optional: auto-close mobile drawer kalau pindah ke layar besar
@@ -31,7 +27,11 @@ const Layout = ({ children }) => {
       />
 
       {/* Sidebar (mobile drawer + desktop static) */}
-      <Sidebar isOpen={sidebarOpen} action={setSidebarOpen} />
+      <Sidebar
+        isOpen={sidebarOpen}
+        activeMenu={pageTitle}
+        action={setSidebarOpen}
+      />
       {/* Main area (shifted right on desktop) */}
 
       <div className="lg:pl-72">

@@ -16,9 +16,9 @@ const Topbar = ({ setSidebarOpen }) => {
           </button>
 
           <div className="leading-tight">
-            <div className="text-sm font-semibold">Dashboard</div>
+            <div className="text-sm font-semibold">SISMAKER</div>
             <div className="text-xs text-slate-500">
-              Overview & quick actions
+              Sistem Manajemen Pekerja
             </div>
           </div>
         </div>

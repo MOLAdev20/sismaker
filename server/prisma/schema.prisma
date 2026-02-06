@@ -29,18 +29,11 @@ model Employee {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  name      String
-  email     String    @unique
+  id        Int      @id @default(autoincrement())
+  username  String
   password  String
-  role      User_role @default(ADMIN)
-  createdAt DateTime  @default(now())
-  updatedAt DateTime
-}
-
-enum User_role {
-  ADMIN
-  HR
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
 
 enum Employee_status {
