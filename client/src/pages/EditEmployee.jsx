@@ -119,7 +119,7 @@ const EditEmployee = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="gap-3 border-b border-slate-200 p-4 sm:flex-row sm:items-center sm:justify-between"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+              <div className="block sm:grid sm:grid-cols-4 gap-4">
                 <div className="flex flex-col col-span-2 gap-1">
                   <label className="text-sm text-slate-600">Nama Lengkap</label>
                   <input

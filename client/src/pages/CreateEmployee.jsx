@@ -91,7 +91,7 @@ const CreateEmployee = () => {
                   List layout + filters (template)
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-5">
+              <div className="block sm:grid sm:grid-cols-4 gap-4 mt-5">
                 <div className="flex flex-col gap-1">
                   <label className="text-sm text-slate-600">ID Pegawai</label>
                   {errors.employeeId && (
