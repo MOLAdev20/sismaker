@@ -6,7 +6,7 @@ import EditEmployee from "./pages/EditEmployee";
 import DetailEmployee from "./pages/DetailEmployee";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
-import ManageDepartment from "./pages/ManageDepartment";
+import AccountSetting from "./pages/AccountSetting";
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
       <Route path="/create-employee" element={<CreateEmployee />} />
       <Route path="/detail-employee/:id" element={<DetailEmployee />} />
       <Route path="/edit-employee/:id" element={<EditEmployee />} />
-      <Route path="/manage-department" element={<ManageDepartment />} />
+      <Route path="/account-settings" element={<AccountSetting />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

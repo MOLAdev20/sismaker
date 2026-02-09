@@ -7,6 +7,7 @@ route.get("/", EmployeeController.getAllEmployee);
 route.post("/", EmployeeController.createEmployee);
 route.post("/validate/:type", EmployeeController.validateInput);
 route.post("/edit/:id", EmployeeController.editEmployee);
+route.get("/change-status/:id", EmployeeController.changeStatus);
 route.get("/:id", EmployeeController.getEmployeeById);
 route.delete("/:id", EmployeeController.deleteEmployee);
 

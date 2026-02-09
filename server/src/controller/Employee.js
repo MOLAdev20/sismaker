@@ -2,11 +2,10 @@ import { prisma } from "../../db/prisma.js";
 
 const EmployeeController = {
   getAllEmployee: async (req, res) => {
-    const { dept, gender, q } = req.query;
+    const { dept, q } = req.query;
 
     const where = {
       ...(dept ? { department: dept } : {}),
-      ...(gender ? { gender } : {}),
       ...(q
         ? {
             OR: [
@@ -40,6 +39,40 @@ const EmployeeController = {
       });
     } catch (error) {
       res.status(500).json({ status: "error", message: error.message });
+    }
+  },
+
+  changeStatus: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { status } = req.query;
+
+      if (!status) {
+        return res.status(400).json({
+          status: "required-field",
+          message: "Status is required",
+        });
+      }
+
+      const employee = await prisma.employee.update({
+        where: { id: Number(id) },
+        data: { status },
+      });
+
+      if (!employee) {
+        return res.status(404).json({
+          status: "error",
+          message: "Employee not found",
+        });
+      }
+
+      return res.json({ status: "ok", data: employee });
+    } catch (e) {
+      return res.status(500).json({
+        status: "error",
+        message: "Server error",
+        detail: e.message,
+      });
     }
   },
 

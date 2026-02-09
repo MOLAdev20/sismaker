@@ -17,7 +17,6 @@ const Dashboard = () => {
   });
   const [filters, setFilters] = useState({
     dept: "",
-    gender: "",
     q: "",
   });
   const initialFiltersRef = useRef(filters);
@@ -65,6 +64,12 @@ const Dashboard = () => {
 
   const updateFilter = (key, value) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
+    if (key == "dept") {
+      setPosition(availableDepts[value]);
+
+      if (value == "") {
+      }
+    }
   };
 
   const applyFilters = () => {
@@ -119,28 +124,22 @@ const Dashboard = () => {
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
                 <input
                   className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-slate-200 sm:w-64"
-                  placeholder="cari nama / email / ID Karyawan..."
+                  placeholder="cari nama, posisi atau ID Karyawan..."
                   value={filters.q}
                   onChange={(e) => updateFilter("q", e.target.value)}
                 />
                 <div className="flex gap-2">
                   <select
                     className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                    value={filters.gender}
-                    onChange={(e) => updateFilter("gender", e.target.value)}
-                  >
-                    <option value="">Gender: All</option>
-                    <option value="l">Laki-laki</option>
-                    <option value="p">Perempuan</option>
-                  </select>
-                  <select
-                    className="rounded-lg border border-slate-200 px-3 py-2 text-sm"
                     value={filters.dept}
                     onChange={(e) => updateFilter("dept", e.target.value)}
                   >
-                    <option value="">Dept: All</option>
-                    <option value="IT">IT</option>
+                    <option value="">Departemen: Semua</option>
+                    <option value="HRGA">HRGA</option>
+                    <option value="Akunting">Akunting</option>
+                    <option value="Marketing">Marketing</option>
                     <option value="Pendidikan">Pendidikan</option>
+                    <option value="IT">IT</option>
                   </select>
                   <button
                     type="button"

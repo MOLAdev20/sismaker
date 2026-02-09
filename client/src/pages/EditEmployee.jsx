@@ -187,19 +187,32 @@ const EditEmployee = () => {
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="text-sm text-slate-600">Departemen</label>
-                  <input
-                    type="text"
+                  <select
                     {...register("department", { required: true })}
                     className="border p-2 text-sm rounded border-slate-300 outline-none focus:ring-2 focus:ring-blue-200 transition-all"
-                  />
+                  >
+                    <option value="HRGA">HRGA</option>
+                    <option value="Akunting">Akunting</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Pendidikan">Pendidikan</option>
+                    <option value="IT">IT</option>
+                  </select>
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="text-sm text-slate-600">Posisi</label>
-                  <input
-                    type="text"
+                  <select
                     {...register("position", { required: true })}
                     className="border p-2 text-sm rounded border-slate-300 outline-none focus:ring-2 focus:ring-blue-200 transition-all"
-                  />
+                  >
+                    <option value="Fullstack">Fullstack</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Fron End">Fron End</option>
+                    <option value="Kepala Pendidikan">Kepala Pendidikan</option>
+                    <option value="Kepala Marketing">Kepala Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Finance">Finance</option>
+                    <option value="HRGA">HRGA</option>
+                  </select>
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="text-sm text-slate-600">
@@ -232,7 +245,7 @@ const EditEmployee = () => {
                 <div className="col-span-4">
                   <button
                     type="submit"
-                    className="p-2 bg-blue-500 text-white rounded w-full hover:bg-blue-600 cursor-pointer active:bg-blue-700 transition-all"
+                    className="p-2 bg-slate-900 text-white rounded w-full hover:bg-slate-800 cursor-pointer transition-all"
                   >
                     {loading ? "Menyimpan..." : "Simpan Perubahan"}
                   </button>

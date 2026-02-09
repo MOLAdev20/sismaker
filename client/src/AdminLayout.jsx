@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 
 const Layout = ({ children, pageTitle }) => {

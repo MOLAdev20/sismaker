@@ -24,18 +24,7 @@ const Topbar = ({ setSidebarOpen }) => {
         </div>
 
         {/* Right side */}
-        <div className="flex items-center gap-2">
-          {/* User chip */}
-          <div className="hidden sm:flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5">
-            <div className="h-7 w-7 rounded-full bg-slate-200" />
-            <div className="leading-tight">
-              <div className="text-xs font-medium">Admin</div>
-              <div className="text-[11px] text-slate-500">
-                admin@example.com
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="flex items-center gap-2"></div>
       </div>
     </header>
   );

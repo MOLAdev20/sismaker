@@ -25,6 +25,24 @@ const DetailEmployee = () => {
       });
   }, []);
 
+  const changeStatus = () => {
+    const confirm = window.confirm("Ganti status?");
+
+    if (confirm)
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/change-status/${id}`, {
+          params: { status: detail.status == "ACTIVE" ? "INACTIVE" : "ACTIVE" },
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        })
+        .then((res) => {
+          alert("Status berhasil diganti");
+          setDetail(res.data.data);
+        })
+        .catch(() => {
+          alert("Ada masalah");
+        });
+  };
+
   const performDelete = () => {
     setIsDeleteOpen(false);
     setLoading(true);
@@ -73,7 +91,7 @@ const DetailEmployee = () => {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 p-5 sm:p-6 lg:grid-cols-2">
+            <div className="grid grid-cols-2 gap-4 p-5 sm:p-6">
               <Card label="Employee ID" value={detail.employeeId} />
               <Card label="Full Name" value={detail.fullName} />
               <Card
@@ -93,8 +111,13 @@ const DetailEmployee = () => {
                   STATUS
                 </div>
                 <div className="mt-2 text-sm text-slate-700 flex items-center justify-between">
-                  <span>{detail.status}</span>
-                  <button className="text-xs text-slate-500 p-1 border border-slate-200 rounded cursor-pointer active:scale-95">
+                  <span>
+                    {detail.status == "ACTIVE" ? "Aktif" : "Nonaktif"}
+                  </span>
+                  <button
+                    onClick={() => changeStatus()}
+                    className="text-xs text-slate-500 p-1 border border-slate-200 rounded cursor-pointer active:scale-95"
+                  >
                     {detail.status === "ACTIVE" ? "Nonaktifkan" : "Aktifkan"}
                   </button>
                 </div>

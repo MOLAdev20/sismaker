@@ -1,13 +1,13 @@
 import IconX from "./icons/IconX";
 import IconUser from "./icons/IconUser";
 import IconPlus from "./icons/IconPlus";
-import IconGrid from "./icons/IconGrid";
 import IconShield from "./icons/IconShield";
 import { Link } from "react-router-dom";
 import IconLogout from "./icons/IconLogout";
 import Modal from "./Modal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import AccountSetting from "../pages/AccountSetting";
 
 const Sidebar = ({ isOpen, activeMenu, action }) => {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
@@ -70,7 +70,11 @@ const Sidebar = ({ isOpen, activeMenu, action }) => {
             Settings
           </div>
           <div className="mt-2 space-y-1">
-            <NavItem icon={<IconShield />} label="Roles & Access" />
+            <NavItem
+              icon={<IconShield />}
+              target={"/account-settings"}
+              label="Pengaturan"
+            />
           </div>
         </nav>
 
@@ -111,26 +115,25 @@ const Sidebar = ({ isOpen, activeMenu, action }) => {
               icon={<IconPlus />}
               label="Tambah Karyawan"
             />
-            <NavItem
-              active={activeMenu == "manage-department"}
-              target={"/manage-department"}
-              icon={<IconGrid />}
-              label="Data Departemen"
-            />
-            <button
-              onClick={() => setShowConfirmDialog(true)}
-              className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-            >
-              <IconLogout /> Logout
-            </button>
           </div>
 
           <div className="mt-6 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-            Settings
+            Akun Pribadi
           </div>
           <div className="mt-2 space-y-1">
-            <NavItem icon={<IconShield />} label="Roles & Access" />
+            <NavItem
+              active={activeMenu == "account-settings"}
+              icon={<IconShield />}
+              target={"/account-settings"}
+              label="Pengaturan Akun"
+            />
           </div>
+          <button
+            onClick={() => setShowConfirmDialog(true)}
+            className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+            <IconLogout /> Keluar
+          </button>
         </nav>
       </div>
 
