@@ -54,12 +54,17 @@ const Sidebar = ({ isOpen, activeMenu, action }) => {
           </div>
           <div className="mt-2 space-y-1">
             <NavItem
-              active
+              active={[
+                "manage-employee",
+                "detail-employee",
+                "edit-employee",
+              ].includes(activeMenu)}
               icon={<IconUser />}
               label="Data Karyawan"
               target={"/dashboard"}
             />
             <NavItem
+              active={activeMenu == "create-employee"}
               target={"/create-employee"}
               icon={<IconPlus />}
               label="Tambah Karyawan"
@@ -67,15 +72,22 @@ const Sidebar = ({ isOpen, activeMenu, action }) => {
           </div>
 
           <div className="mt-6 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-            Settings
+            Akun Pribadi
           </div>
           <div className="mt-2 space-y-1">
             <NavItem
+              active={activeMenu == "account-settings"}
               icon={<IconShield />}
               target={"/account-settings"}
-              label="Pengaturan"
+              label="Pengaturan Akun"
             />
           </div>
+          <button
+            onClick={() => setShowConfirmDialog(true)}
+            className="flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+            <IconLogout /> Keluar
+          </button>
         </nav>
 
         <div className="absolute bottom-0 w-full border-t border-slate-200 p-4 text-xs text-slate-500">
